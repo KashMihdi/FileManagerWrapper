@@ -8,7 +8,7 @@ public struct FileManagerWrapper<T: Codable>: DynamicProperty {
     
     public var wrappedValue: T? {
         get { value }
-        nonmutating set { value = newValue }
+        nonmutating set { save(newValue: newValue) }
     }
     
     public var projectedValue: T? {
