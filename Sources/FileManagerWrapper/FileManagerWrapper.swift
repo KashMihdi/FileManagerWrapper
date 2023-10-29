@@ -2,21 +2,21 @@
 import SwiftUI
 
 @propertyWrapper
-struct FileManagerWrapper<T: Codable>: DynamicProperty {
+public struct FileManagerWrapper<T: Codable>: DynamicProperty {
     @State private var value: T?
-    let key: String
+    private let key: String
     
-    var wrappedValue: T? {
+    public var wrappedValue: T? {
         get { value }
         set { value = newValue }
     }
     
-    var projectedValue: T? {
+    public var projectedValue: T? {
         get { wrappedValue }
         set { wrappedValue = newValue }
     }
     
-    init(_ key: String) {
+    public init(_ key: String) {
         self.key = key
         do {
             let url = FileManager.documentPath(key: key)
